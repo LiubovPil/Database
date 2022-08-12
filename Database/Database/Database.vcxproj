@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Condition_parser.cpp" />
+    <ClCompile Include="Condition_parser_test.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Test_runner.cpp" />
     <ClCompile Include="Token.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +153,7 @@
     <ClInclude Include="Database.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Test_runner.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
