@@ -12,7 +12,11 @@
 using namespace std;
 
 string ParseEvent(istream& is) {
-	// � еализуйте эту функцию
+	string event;
+	while (is.peek() == ' ')
+		is.ignore(1);
+	getline(is, event);
+	return event;
 }
 
 void TestAll();
@@ -20,7 +24,7 @@ void TestAll();
 int main() {
 	TestAll();
 
-	Database db;
+	/*Database db;
 
 	for (string line; getline(cin, line); ) {
 		istringstream is(line);
@@ -70,7 +74,7 @@ int main() {
 			throw logic_error("Unknown command: " + command);
 		}
 	}
-
+	*/
 	return 0;
 }
 
