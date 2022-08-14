@@ -24,7 +24,7 @@ void TestAll();
 int main() {
 	TestAll();
 
-	/*Database db;
+	Database db;
 
 	for (string line; getline(cin, line); ) {
 		istringstream is(line);
@@ -47,6 +47,7 @@ int main() {
 			int count = db.RemoveIf(predicate);
 			cout << "Removed " << count << " entries" << endl;
 		}
+		/*
 		else if (command == "Find") {
 			auto condition = ParseCondition(is);
 			auto predicate = [condition](const Date& date, const string& event) {
@@ -72,9 +73,9 @@ int main() {
 		}
 		else {
 			throw logic_error("Unknown command: " + command);
-		}
+		}*/
 	}
-	*/
+	
 	return 0;
 }
 

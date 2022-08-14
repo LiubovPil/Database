@@ -100,9 +100,6 @@ Date ParseDate(istringstream& is) {
     DetermineNextSymbolAndSkip(is);
 
     is >> day;
-    if (!is.eof()) {
-        throw logic_error("Wrong date format: " + is.str());
-    }
 
     return Date(year, month, day);
 }
