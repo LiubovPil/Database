@@ -28,6 +28,7 @@ ostream& operator << (ostream& out, const Date& date) {
     return out;
 }
 
+//try for all operatir vector
 bool operator < (const Date& lhs, const Date& rhs) {
     if (lhs.GetYear() == rhs.GetYear()) {
         if (lhs.GetMonth() == rhs.GetMonth()) {

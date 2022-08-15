@@ -1,25 +1,4 @@
-﻿  Database.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\xutility(203,20): error C2064: результатом вычисления фрагмента не является функция, принимающая 1 аргументов
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\xutility(196,1): message : класс не определяет "operator()" или пользовательский оператор преобразования в указатель на функцию или ссылку на функцию, принимающий подходящее число аргументов
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\algorithm(6028): message : выполняется компиляция ссылки на экземпляр шаблон функции "decltype(auto) std::_Ref_fn<_Pr>::operator ()<const std::basic_string<char,std::char_traits<char>,std::allocator<char>>&>(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)"
-          with
-          [
-              _Pr=std::function<bool (const Date &,const std::string &)>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\algorithm(6057): message : выполняется компиляция ссылки на экземпляр шаблон функции "_BidIt std::_Stable_partition_unchecked<std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>,std::_Iterator_base0>,std::_Ref_fn<_Pr>>(_BidIt,_BidIt,std::_Ref_fn<_Pr>)"
-          with
-          [
-              _BidIt=std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>,std::_Iterator_base0>,
-              _Pr=std::function<bool (const Date &,const std::string &)>
-          ]
-C:\Repos\Database\Database\Database\Database.cpp(23): message : выполняется компиляция ссылки на экземпляр шаблон функции "_BidIt std::stable_partition<std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>,std::function<bool (const Date &,const std::string &)>>(_BidIt,_BidIt,_Pr)"
-          with
-          [
-              _BidIt=std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>>>,
-              _Pr=std::function<bool (const Date &,const std::string &)>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\algorithm(6028,1): error C2171: !: недопустимо для операндов типа "void"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\algorithm(6028,1): error C2451: условное выражение типа "void" является недопустимым
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\algorithm(6028,13): message : Выражение, имеющее тип void, нельзя преобразовать в другой тип
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\algorithm(6041,1): error C2451: условное выражение типа "void" является недопустимым
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\algorithm(6041,18): message : Выражение, имеющее тип void, нельзя преобразовать в другой тип
+﻿  Date.cpp
+  Main.cpp
+  Создание кода...
+  Database.vcxproj -> C:\Repos\Database\Database\Debug\Database.exe

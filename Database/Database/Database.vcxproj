@@ -145,6 +145,7 @@
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="TestDatabase.cpp" />
     <ClCompile Include="Test_runner.cpp" />
     <ClCompile Include="Token.cpp" />
   </ItemGroup>
