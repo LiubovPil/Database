@@ -15,6 +15,10 @@
 
 using namespace std;
 
+ostream& operator << (ostream& out, const pair<Date, string>& date_event);
+
+bool operator ==(const vector<pair<Date, string>>& rhs_date_event, const vector<pair<Date, string>>& lhs_date_event);
+
 class Database {
 public:
 	void Add(const Date& date, const string& event);
@@ -47,7 +51,24 @@ public:
         return Num;
     }
 
-	void FindIf();
+    template<class Predicate>
+    vector<pair<Date, string>> FindIf(Predicate predicate_) {
+        vector<pair<Date, string>> dates_events;
+        for (auto it_date = begin(database); it_date != end(database); ++it_date) {
+            auto predicate_mod = bind(predicate_, it_date->first, placeholders::_1);
+
+            auto it_event = begin(it_date->second);
+            while (it_event != end(it_date->second)) {
+                it_event = find_if(it_event, end(it_date->second), predicate_mod);
+                
+                if (it_event != end(it_date->second)) {
+                    dates_events.push_back({ it_date->first, *it_event });
+                    ++it_event;
+                }
+            }
+        }
+        return dates_events;
+    }
 
 	string Last(const Date& date) const;
 
@@ -58,3 +79,4 @@ private:
 
 void TestLastCommand();
 void TestRemoveIfCommand();
+void TestFindIfCommand();
