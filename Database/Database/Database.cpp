@@ -7,13 +7,19 @@ ostream& operator << (ostream& out, const pair<Date, string>& date_event) {
 bool operator ==(const vector<pair<Date, string>>& lhs_dates_events, const vector<pair<Date, string>>& rhs_dates_events) {
     if (lhs_dates_events.size() == rhs_dates_events.size()) {
         for (size_t i = 0; i < lhs_dates_events.size(); ++i) {
-            if (lhs_dates_events[i].first != rhs_dates_events[i].first ||
-                lhs_dates_events[i].second != rhs_dates_events[i].second)
+            if (lhs_dates_events[i] != rhs_dates_events[i])
                 return false;
         }
         return true;
     }
     return false;
+}
+bool operator ==(const pair<Date, string>& lhs_date_event, const pair<Date, string>& rhs_date_event) {
+    if (lhs_date_event.first != rhs_date_event.first ||
+        lhs_date_event.second != rhs_date_event.second)
+        return false;
+    else
+        return true;
 }
 
 void Database::Add(const Date& date, const string& event) {
@@ -32,17 +38,11 @@ void Database::Print(ostream& out) const {
         }
     }
 }
-string Database::Last(const Date& date) const {
-    stringstream sout;
-
+pair<Date, string> Database::Last(const Date& date) const {
     auto it = database_sorted.lower_bound(date);
     if (it == begin(database_sorted)) {
-        //sout << "No entries";
-        //return sout.str();
         throw invalid_argument("No entries");
     }
     --it;
-    sout << it->first
-        << " " << *rbegin(it->second);
-    return sout.str();
+    return make_pair(it->first, *rbegin(it->second));
 }

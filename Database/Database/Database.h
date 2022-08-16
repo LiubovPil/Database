@@ -5,8 +5,8 @@
 
 #include <functional>
 #include <algorithm>
+#include <chrono>
 #include <iostream>
-#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <map>
@@ -19,6 +19,8 @@ ostream& operator << (ostream& out, const pair<Date, string>& date_event);
 
 bool operator ==(const vector<pair<Date, string>>& rhs_date_event, const vector<pair<Date, string>>& lhs_date_event);
 
+bool operator ==(const pair<Date, string>& lhs_date_event, const pair<Date, string>& rhs_date_event);
+
 class Database {
 public:
 	void Add(const Date& date, const string& event);
@@ -29,24 +31,25 @@ public:
     int RemoveIf(Predicate predicate_){
         int Num = 0;
 
-        for (auto it_date = database_sorted.begin(); it_date != database_sorted.end(); ++it_date) {
-            auto predicate_mod = bind(predicate_, it_date->first, placeholders::_1);
-            auto it_events_sorted = stable_partition(begin(it_date->second), end(it_date->second), predicate_mod);
-            //try auto it_events_sorted = stable_partition(rbegin(it_date->second), rend(it_date->second), predicate_mod);
+        for (auto& item: database_sorted) {
+            auto predicate_mod = bind(predicate_, item.first, placeholders::_1);
+            auto it_events_sorted = stable_partition(begin(item.second), end(item.second), predicate_mod);
 
-            if (it_events_sorted != begin(it_date->second)) {
-                Num += it_events_sorted - begin(it_date->second);
-                for (auto it = begin(it_date->second); it != it_events_sorted; ++it) {
-                    database[it_date->first].erase(*it); 
+            if (it_events_sorted != begin(item.second)) {
+                Num += it_events_sorted - begin(item.second);
+                for (auto it = begin(item.second); it != it_events_sorted; ++it) {
+                    database[item.first].erase(*it);
                 } 
-                (it_date->second).erase(begin(it_date->second), it_events_sorted);
-                //try instead for database[it_date->first] = set<string>(begin(it_date->second), end(it_date->second));
+                (item.second).erase(begin(item.second), it_events_sorted);
             }
-
-            if (database_sorted.count(it_date->first) == 0) {
-                database_sorted.erase(it_date->first);
-                database.erase(it_date->first);
+        }
+        for (auto it = database_sorted.begin(); it != database_sorted.end();) {
+            if (database_sorted[(it->first)].size() == 0) {
+                database.erase(it->first);
+                database_sorted.erase(it++);
             }
+            else
+                ++it;
         }
         return Num;
     }
@@ -70,7 +73,7 @@ public:
         return dates_events;
     }
 
-	string Last(const Date& date) const;
+    pair<Date, string> Last(const Date& date) const;
 
 private:
 	map<Date, set<string>> database;

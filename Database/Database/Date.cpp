@@ -28,7 +28,6 @@ ostream& operator << (ostream& out, const Date& date) {
     return out;
 }
 
-//try for all operatir vector
 bool operator < (const Date& lhs, const Date& rhs) {
     if (lhs.GetYear() == rhs.GetYear()) {
         if (lhs.GetMonth() == rhs.GetMonth()) {
@@ -69,7 +68,7 @@ bool operator == (const Date& lhs, const Date& rhs) {
     if (lhs.GetYear() == rhs.GetYear()) {
         if (lhs.GetMonth() == rhs.GetMonth()) {
             if (lhs.GetDay() == rhs.GetDay())
-            return true;
+                return true;
         }
     }
     return false;
@@ -78,7 +77,7 @@ bool operator != (const Date& lhs, const Date& rhs) {
     if (lhs.GetYear() == rhs.GetYear()) {
         if (lhs.GetMonth() == rhs.GetMonth()) {
             if (lhs.GetDay() == rhs.GetDay())
-            return false;
+                return false;
         }
     }
     return true;
